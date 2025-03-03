@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "c17d367b-806f-477e-ba89-e563904f7857",
+		"name": "CRUDCoperex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956970"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "afigueroaQkinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789AS!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "POSTCompany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Kinsl Solutions\",\r\n    \"descripcion\": \"Empresa de tecnología\",\r\n    \"impacto\": \"Medio\",\r\n    \"trayectoria\": 12,\r\n    \"categoria\": \"Tecnología\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2636/api/company",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETDeLaA-Z",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2636/api/company/ordenadas-az",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company",
+								"ordenadas-az"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETDeLaZ-A",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2636/api/company/ordenadas-za",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company",
+								"ordenadas-za"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETPor trayectorio",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2636/api/company/por-trayectoria",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company",
+								"por-trayectoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETPor categoria",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2636/api/company/por-categoria",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company",
+								"por-categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POSTPorId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2636/api/company/67c52c0fcdcfe9b84a67197d",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company",
+								"67c52c0fcdcfe9b84a67197d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUTCompany",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"KinalInovations\",\r\n    \"descripcion\": \"Empresa líder en desarrollo de software\",\r\n    \"impacto\": \"Alto\",\r\n    \"trayectoria\": 20,\r\n    \"categoria\": \"Desarrollo de Software\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2636/api/company/67c52c0fcdcfe9b84a67197d",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"api",
+								"company",
+								"67c52c0fcdcfe9b84a67197d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
